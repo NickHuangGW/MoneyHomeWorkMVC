@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVCHomeWorkMoneyTemplate.ViewModels.DailyAccountViewModel>
+@{
+    Layout = null;
+}
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingAmount)
+        </th>
+    </tr>
+    @{
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountingAmount)
+                </td>
+            </tr>
+        }
+    }
+</table>

@@ -1,4 +1,5 @@
 ﻿using MVCHomeWorkMoneyTemplate.EnumType;
+using MVCHomeWorkMoneyTemplate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,15 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
             List<SelectListItem> AccountTypeItems = GetAccountTypeItems();
             return PartialView("AccountTypeDDL", AccountTypeItems);
 
+        }
+        public ActionResult List()
+        {
+            List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>()
+            {
+                new DailyAccountViewModel(){ AccountType=0,AccountingDate=DateTime.Now,AccountingAmount=100,Description="AA"}
+
+            };
+            return PartialView(DailyAccountViewModels);
         }
         private List<SelectListItem> GetAccountTypeItems()
         {
