@@ -26,15 +26,16 @@
                     @i
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AccountType)
+                    @Html.DisplayFor(modelItem => item.AccountTypeName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AccountingDate)
+                    @Html.DisplayFor(modelItem => item.AccountingDate, "DateTimeTemplate")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AccountingAmount)
+                    @Html.DisplayFor(modelItem => item.AccountingAmount, "MoneyTemplate")
                 </td>
             </tr>
+            i++;
         }
     }
 </table>

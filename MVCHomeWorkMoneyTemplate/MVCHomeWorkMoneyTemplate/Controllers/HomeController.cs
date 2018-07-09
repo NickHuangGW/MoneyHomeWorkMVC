@@ -38,7 +38,8 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         {
             List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>()
             {
-                new DailyAccountViewModel(){ AccountType=0,AccountingDate=DateTime.Now,AccountingAmount=100,Description="AA"}
+                new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=DateTime.Now,AccountingAmount=1000000,Description="AA"},
+                 new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=null,AccountingAmount=100000,Description="AA"}
 
             };
             return PartialView(DailyAccountViewModels);
