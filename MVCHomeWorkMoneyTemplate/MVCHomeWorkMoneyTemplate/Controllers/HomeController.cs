@@ -60,10 +60,10 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
                 int Type = DataRandom.Next(0, 2);
                 int AccountMoney = DataRandom.Next(0, 10000000);
                 int AccountDate = DataRandom.Next(0, 100);
-                DailyAccountViewModel.AccountingAmount = AccountMoney;
-                DailyAccountViewModel.AccountType = Type;
-                DailyAccountViewModel.AccountTypeName = GetTypeName((AccountTypeEnum)Type);
-                DailyAccountViewModel.AccountingDate = DateTime.Now.AddDays(AccountDate);
+                DailyAccountViewModel.Money = AccountMoney;
+                DailyAccountViewModel.CategoryID = Type;
+                DailyAccountViewModel.CategoryName = GetTypeName((AccountTypeEnum)Type);
+                DailyAccountViewModel.Date = DateTime.Now.AddDays(AccountDate);
                 DailyAccountViewModels.Add(DailyAccountViewModel);
             }
             return DailyAccountViewModels;

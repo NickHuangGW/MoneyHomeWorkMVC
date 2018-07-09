@@ -8,13 +8,13 @@
             #
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AccountTypeName)
+            @Html.DisplayNameFor(model => model.CategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AccountingDate)
+            @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AccountingAmount)
+            @Html.DisplayNameFor(model => model.Money)
         </th>
     </tr>
     @{
@@ -26,13 +26,13 @@
                     @i
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AccountTypeName)
+                    @Html.DisplayFor(modelItem => item.CategoryName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AccountingDate, "DateTimeTemplate")
+                    @Html.DisplayFor(modelItem => item.Date, "DateTimeTemplate")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AccountingAmount, "MoneyTemplate")
+                    @Html.DisplayFor(modelItem => item.Money, "MoneyTemplate")
                 </td>
             </tr>
             i++;
