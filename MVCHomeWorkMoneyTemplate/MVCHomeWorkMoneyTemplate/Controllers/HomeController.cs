@@ -36,12 +36,8 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         }
         public ActionResult List()
         {
-            List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>()
-            {
-                new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=DateTime.Now,AccountingAmount=1000000,Description="AA"},
-                 new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=null,AccountingAmount=100000,Description="AA"}
+            List<DailyAccountViewModel> DailyAccountViewModels = GetData();
 
-            };
             return PartialView(DailyAccountViewModels);
         }
         private List<SelectListItem> GetAccountTypeItems()
@@ -53,6 +49,29 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
                 new SelectListItem(){ Text="支出",Value=((int)AccountTypeEnum.Outlay).ToString()}
             };
             return AccountTypeItems;
+        }
+        private List<DailyAccountViewModel> GetData()
+        {
+            List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>();
+            Random TypeRandom = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                DailyAccountViewModel DailyAccountViewModel = new DailyAccountViewModel();
+                int Type = TypeRandom.Next(0, 1);
+                int AccountMoney = TypeRandom.Next(0, 10000000);
+                int AccountDate = TypeRandom.Next(0, 100);
+                DailyAccountViewModel.AccountingAmount = AccountMoney;
+                DailyAccountViewModel.AccountType = Type;
+                DailyAccountViewModel.AccountingDate = DateTime.Now.AddDays(AccountDate);
+                DailyAccountViewModels.Add(DailyAccountViewModel);
+            }
+            //List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>()
+            //{
+            //    new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=DateTime.Now,AccountingAmount=1000000,Description="AA"},
+            //     new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=null,AccountingAmount=100000,Description="AA"}
+
+            //};
+            return DailyAccountViewModels;
         }
     }
 }
