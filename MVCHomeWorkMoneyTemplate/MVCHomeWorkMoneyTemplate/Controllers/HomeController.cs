@@ -1,4 +1,6 @@
 ﻿using MVCHomeWorkMoneyTemplate.EnumType;
+using MVCHomeWorkMoneyTemplate.Factory;
+using MVCHomeWorkMoneyTemplate.Service;
 using MVCHomeWorkMoneyTemplate.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -28,59 +31,18 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
 
             return View();
         }
-        public ActionResult GetAccountTypeDDL()
+        public ActionResult GetCategoryDDL()
         {
-            List<SelectListItem> AccountTypeItems = GetAccountTypeItems();
-            return PartialView("AccountTypeDDL", AccountTypeItems);
+            ICategoryService CategoryService = new ServiceFactory().GetCategoryService();
+            List<SelectListItem> CategorySelectListItems = CategoryService.GetCategorySelectListItem();
+            return PartialView("CategoryDDL", CategorySelectListItems);
 
         }
         public ActionResult List()
         {
-            List<DailyAccountViewModel> DailyAccountViewModels = GetData();
-
+            IDailyAccountService DailyAccountService = new ServiceFactory().GetDailyAccountService();
+            List<DailyAccountViewModel> DailyAccountViewModels = DailyAccountService.GetData();
             return PartialView(DailyAccountViewModels);
-        }
-        private List<SelectListItem> GetAccountTypeItems()
-        {
-            List<SelectListItem> AccountTypeItems = new List<SelectListItem>()
-            {
-                new SelectListItem(){ Text="請選擇",Value=""},
-                new SelectListItem(){ Text="收入",Value=((int)AccountTypeEnum.Income).ToString()},
-                new SelectListItem(){ Text="支出",Value=((int)AccountTypeEnum.Outlay).ToString()}
-            };
-            return AccountTypeItems;
-        }
-        private List<DailyAccountViewModel> GetData()
-        {
-            List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>();
-            Random DataRandom = new Random();
-            for (int i = 0; i < 50; i++)
-            {
-                DailyAccountViewModel DailyAccountViewModel = new DailyAccountViewModel();
-                int Type = DataRandom.Next(0, 2);
-                int AccountMoney = DataRandom.Next(0, 10000000);
-                int AccountDate = DataRandom.Next(0, 100);
-                DailyAccountViewModel.Money = AccountMoney;
-                DailyAccountViewModel.CategoryID = Type;
-                DailyAccountViewModel.CategoryName = GetTypeName((AccountTypeEnum)Type);
-                DailyAccountViewModel.Date = DateTime.Now.AddDays(AccountDate);
-                DailyAccountViewModels.Add(DailyAccountViewModel);
-            }
-            return DailyAccountViewModels;
-        }
-        private string GetTypeName(AccountTypeEnum _accountTypeEnum)
-        {
-            string TypeName = string.Empty;
-            switch (_accountTypeEnum)
-            {
-                case AccountTypeEnum.Income:
-                    TypeName = "收入";
-                    break;
-                case AccountTypeEnum.Outlay:
-                    TypeName = "支出";
-                    break;
-            }
-            return TypeName;
         }
     }
 }

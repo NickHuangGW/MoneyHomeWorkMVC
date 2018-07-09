@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCHomeWorkMoneyTemplate.EnumType
 {
-    public enum AccountTypeEnum
+    public enum CategoryEnum
     {
         Income,
 

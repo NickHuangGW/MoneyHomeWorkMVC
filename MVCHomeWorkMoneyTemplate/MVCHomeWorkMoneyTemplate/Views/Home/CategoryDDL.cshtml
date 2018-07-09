@@ -1,0 +1,6 @@
+﻿@model IEnumerable<SelectListItem>
+@{
+    Layout = null;
+
+}
+@Html.DropDownList("ddlCategory", Model, new { @id = "category", @class = "form-control" })
