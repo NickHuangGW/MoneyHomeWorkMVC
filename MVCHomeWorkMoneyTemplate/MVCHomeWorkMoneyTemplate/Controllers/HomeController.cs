@@ -53,25 +53,34 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         private List<DailyAccountViewModel> GetData()
         {
             List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>();
-            Random TypeRandom = new Random();
+            Random DataRandom = new Random();
             for (int i = 0; i < 50; i++)
             {
                 DailyAccountViewModel DailyAccountViewModel = new DailyAccountViewModel();
-                int Type = TypeRandom.Next(0, 1);
-                int AccountMoney = TypeRandom.Next(0, 10000000);
-                int AccountDate = TypeRandom.Next(0, 100);
+                int Type = DataRandom.Next(0, 2);
+                int AccountMoney = DataRandom.Next(0, 10000000);
+                int AccountDate = DataRandom.Next(0, 100);
                 DailyAccountViewModel.AccountingAmount = AccountMoney;
                 DailyAccountViewModel.AccountType = Type;
+                DailyAccountViewModel.AccountTypeName = GetTypeName((AccountTypeEnum)Type);
                 DailyAccountViewModel.AccountingDate = DateTime.Now.AddDays(AccountDate);
                 DailyAccountViewModels.Add(DailyAccountViewModel);
             }
-            //List<DailyAccountViewModel> DailyAccountViewModels = new List<DailyAccountViewModel>()
-            //{
-            //    new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=DateTime.Now,AccountingAmount=1000000,Description="AA"},
-            //     new DailyAccountViewModel(){ AccountType=0,AccountTypeName="支出",AccountingDate=null,AccountingAmount=100000,Description="AA"}
-
-            //};
             return DailyAccountViewModels;
+        }
+        private string GetTypeName(AccountTypeEnum _accountTypeEnum)
+        {
+            string TypeName = string.Empty;
+            switch (_accountTypeEnum)
+            {
+                case AccountTypeEnum.Income:
+                    TypeName = "收入";
+                    break;
+                case AccountTypeEnum.Outlay:
+                    TypeName = "支出";
+                    break;
+            }
+            return TypeName;
         }
     }
 }
