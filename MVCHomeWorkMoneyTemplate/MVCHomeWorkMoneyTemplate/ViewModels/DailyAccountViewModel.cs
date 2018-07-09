@@ -13,5 +13,7 @@ namespace MVCHomeWorkMoneyTemplate.ViewModels
         public DateTime AccountingDate { get; set; }
 
         public int AccountingAmount { get; set; }
+
+        public string Description { get; set; }
     }
 }
