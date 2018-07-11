@@ -9,6 +9,6 @@ namespace MVCHomeWorkMoneyTemplate.Service
 {
     public interface IDailyAccountService
     {
-        List<DailyAccountViewModel> GetData();
+        IEnumerable<DailyAccountViewModel> GetData();
     }
 }

@@ -33,16 +33,16 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         }
         public ActionResult GetCategoryDDL()
         {
-            ICategoryService CategoryService = new ServiceFactory().GetCategoryService();
-            List<SelectListItem> CategorySelectListItems = CategoryService.GetCategorySelectListItem();
-            return PartialView("CategoryDDL", CategorySelectListItems);
+            ICategoryService categoryService = new ServiceFactory().GetCategoryService();
+            List<SelectListItem> categorySelectListItems = categoryService.GetCategorySelectListItem();
+            return PartialView("CategoryDDL", categorySelectListItems);
 
         }
         public ActionResult List()
         {
-            IDailyAccountService DailyAccountService = new ServiceFactory().GetDailyAccountService();
-            List<DailyAccountViewModel> DailyAccountViewModels = DailyAccountService.GetData();
-            return PartialView(DailyAccountViewModels);
+            IDailyAccountService dailyAccountService = new ServiceFactory().GetDailyAccountService();
+            IEnumerable<DailyAccountViewModel> dailyAccountViewModels = dailyAccountService.GetData();
+            return PartialView(dailyAccountViewModels);
         }
     }
 }
