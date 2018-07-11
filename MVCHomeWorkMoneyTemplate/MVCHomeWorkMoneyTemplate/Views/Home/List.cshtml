@@ -18,12 +18,12 @@
         </th>
     </tr>
     @{
-        int i = 1;
+        int i = 0;
         foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @i
+                    @(++i)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CategoryName)
@@ -35,7 +35,6 @@
                     @Html.DisplayFor(modelItem => item.Money, "MoneyTemplate")
                 </td>
             </tr>
-            i++;
         }
     }
 </table>
