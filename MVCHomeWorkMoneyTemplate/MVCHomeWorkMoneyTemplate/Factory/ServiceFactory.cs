@@ -10,7 +10,7 @@ namespace MVCHomeWorkMoneyTemplate.Factory
     {
         public IDailyAccountService GetDailyAccountService()
         {
-            return new DailyAccountService();
+            return new DailyAccountByEfService();
         }
         public ICategoryService GetCategoryService()
         {

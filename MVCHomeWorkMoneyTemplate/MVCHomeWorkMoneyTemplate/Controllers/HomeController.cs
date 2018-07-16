@@ -33,10 +33,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         }
         public ActionResult GetCategoryDDL()
         {
-            //ICategoryService categoryService = new ServiceFactory().GetCategoryService();
-            //List<SelectListItem> categorySelectListItems = categoryService.GetCategorySelectListItem();
             return PartialView("CategoryDDL");
-
         }
         public ActionResult List()
         {
