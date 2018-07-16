@@ -1,6 +1,3 @@
-﻿@model IEnumerable<SelectListItem>
-@{
-    Layout = null;
-
-}
-@Html.DropDownList("ddlCategory", Model, new { @id = "category", @class = "form-control" })
+﻿@model MVCHomeWorkMoneyTemplate.EnumType.CategoryType
+ @{   Layout = null;}
+@Html.EnumDropDownListFor(x=>x.Category,new { @id = "category", @class = "form-control" })
