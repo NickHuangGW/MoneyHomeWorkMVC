@@ -10,5 +10,7 @@ namespace MVCHomeWorkMoneyTemplate.Service
     public interface IDailyAccountService
     {
         IEnumerable<DailyAccountViewModel> GetData();
+
+        bool InsData(DailyAccountViewModel dailyAccountViewModel);
     }
 }

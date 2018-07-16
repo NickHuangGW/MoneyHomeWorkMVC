@@ -27,6 +27,12 @@ namespace MVCHomeWorkMoneyTemplate.Service
                 yield return  dailyAccountViewModel;
             }
         }
+
+        public bool InsData(DailyAccountViewModel dailyAccountViewModel)
+        {
+            throw new NotImplementedException();
+        }
+
         private string GetTypeName(CategoryEnum categoryEnum)
         {
             string typeName = string.Empty;

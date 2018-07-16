@@ -25,11 +25,36 @@ namespace MVCHomeWorkMoneyTemplate.Service
                     Money = dt.Amounttt,
                     CategoryID = dt.Categoryyy,
                     CategoryName = GetTypeName((CategoryEnum)dt.Categoryyy),
-                    Date = dt.Dateee
+                    Date = dt.Dateee,
+                    Description= dt.Remarkkk
                 };
                 yield return dailyAccountViewModel;
             }
         }
+
+        public bool InsData(DailyAccountViewModel dailyAccountViewModel)
+        {
+            bool isSucess = true;
+            try
+            {
+                var accountBook = new AccountBook
+                {
+                    Id = Guid.NewGuid(),
+                    Amounttt = dailyAccountViewModel.Money,
+                    Categoryyy = Convert.ToInt32(dailyAccountViewModel.CategoryID),
+                    Dateee = Convert.ToDateTime(dailyAccountViewModel.Date),
+                    Remarkkk = dailyAccountViewModel.Description
+                };
+                _db.AccountBook.Add(accountBook);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                isSucess = false;
+            }
+            return isSucess;
+        }
+
         private string GetTypeName(CategoryEnum categoryEnum)
         {
             string typeName = string.Empty;

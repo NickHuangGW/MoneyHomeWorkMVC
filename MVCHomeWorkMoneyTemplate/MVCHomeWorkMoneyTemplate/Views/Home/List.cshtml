@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MVCHomeWorkMoneyTemplate.ViewModels.DailyAccountViewModel>
+﻿@using MVCHomeWorkMoneyTemplate.Helper
+@model IEnumerable<MVCHomeWorkMoneyTemplate.ViewModels.DailyAccountViewModel>
 @{
     Layout = null;
 }
@@ -26,7 +27,7 @@
                     @(++i)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoryName)
+                    @Html.DisplayCategoryType(item.CategoryID, item.CategoryName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Date, "DateTimeTemplate")

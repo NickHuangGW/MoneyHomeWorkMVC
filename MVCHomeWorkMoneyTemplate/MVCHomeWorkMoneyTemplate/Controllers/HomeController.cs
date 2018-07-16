@@ -17,7 +17,12 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
 
             return View();
         }
-
+        public ActionResult Create(DailyAccountViewModel dailyAccountViewModel)
+        {
+            IDailyAccountService dailyAccountService = new ServiceFactory().GetDailyAccountService();
+            bool isSucess = dailyAccountService.InsData(dailyAccountViewModel);
+            return View("Index");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

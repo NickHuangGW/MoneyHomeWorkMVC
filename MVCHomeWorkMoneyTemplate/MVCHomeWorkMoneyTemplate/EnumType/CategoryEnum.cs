@@ -15,6 +15,6 @@ namespace MVCHomeWorkMoneyTemplate.EnumType
     }
     public class CategoryType
     {
-        public CategoryEnum Category { get; set; }
+        public CategoryEnum CategoryID { get; set; }
     }
 }
