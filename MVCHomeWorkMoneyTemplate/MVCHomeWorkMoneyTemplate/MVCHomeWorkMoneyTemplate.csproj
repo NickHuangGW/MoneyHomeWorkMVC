@@ -166,6 +166,8 @@
     <Compile Include="Models\AccountBook.cs" />
     <Compile Include="Models\DataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IUnitOfWork.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\DailyAccountByEfService.cs" />
     <Compile Include="Service\DailyAccountService.cs" />
