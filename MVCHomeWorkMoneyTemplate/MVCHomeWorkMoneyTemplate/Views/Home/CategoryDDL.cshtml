@@ -1,3 +1,4 @@
 ﻿@model MVCHomeWorkMoneyTemplate.EnumType.CategoryType
 @{ Layout = null;}
 @Html.EnumDropDownListFor(x => x.CategoryID, null, new { @id = "CategoryID", @name = "CategoryID", @class = "form-control" })
+@Html.ValidationMessageFor(Model => Model.CategoryID)

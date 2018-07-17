@@ -5,35 +5,40 @@
 
 
 <div class="well">
-    @using (Html.BeginForm("Create", "Home", FormMethod.Post,new { @class= "form-horizontal" }))
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal",@id="DataForm" }))
     {
         @*<form class="form-horizontal">*@
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.CategoryID, null, new { @class = "col-sm-2 control-label" })
+        @*<label for="category" class="col-sm-2 control-label">類別</label>*@
+        <div class="col-sm-10">
+            @Html.Action("GetCategoryDDL")
+        </div>
+    </div>
         <div class="form-group">
-            <label for="category" class="col-sm-2 control-label">類別</label>
+            @Html.LabelFor(Model => Model.Money, null, new { @class = "col-sm-2 control-label" })
+            @*<label for="money" class="col-sm-2 control-label">金額</label>*@
             <div class="col-sm-10">
-                @Html.Action("GetCategoryDDL")
+                @Html.TextBoxFor(Model => Model.Money, new { @type = "text", @id = "money", @name = "Money", @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Money)
             </div>
         </div>
         <div class="form-group">
-            <label for="money" class="col-sm-2 control-label">金額</label>
+            @Html.LabelFor(Model => Model.Date, null, new { @class = "col-sm-2 control-label" })
+
+            @*<label for="date" class="col-sm-2 control-label">日期</label>*@
             <div class="col-sm-10">
-                @*<input type="text" class="form-control" id="money" placeholder="金額">*@
-                @Html.EditorFor(Model => Model.Money, new { @type= "text", @id = "money", @name = "Money", @class = "form-control" })
+                @Html.TextBoxFor(Model => Model.Date, new { @type = "text", @id = "date", @name = "Date", @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Date)
             </div>
         </div>
         <div class="form-group">
-            <label for="date" class="col-sm-2 control-label">日期</label>
-            <div class="col-sm-10">
-                @*<input type="text" class="form-control" id="date" placeholder="日期">*@
-                @Html.EditorFor(Model => Model.Date, new { @type = "text", @id = "date", @name = "Date", @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">備註</label>
+            @*<label for="description" class="col-sm-2 control-label">備註</label>*@
+            @Html.LabelFor(Model => Model.Description, null, new { @class = "col-sm-2 control-label" })
+
             <div class="col-sm-10">
                 @Html.TextAreaFor(Model => Model.Description, new { @id = "description", @name = "Description", @class = "form-control" })
-                @*<textarea class="form-control" id="description">
-                    </textarea>*@
+                @Html.ValidationMessageFor(Model => Model.Description)
             </div>
         </div>
         <div class="form-group">
@@ -41,7 +46,6 @@
                 <button type="submit" class="btn btn-default">送出</button>
             </div>
         </div>
-        @*</form>*@
     }
 </div>
 

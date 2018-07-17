@@ -17,11 +17,17 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
 
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(DailyAccountViewModel dailyAccountViewModel)
         {
-            IDailyAccountService dailyAccountService = new ServiceFactory().GetDailyAccountService();
-            bool isSucess = dailyAccountService.InsData(dailyAccountViewModel);
-            return View("Index");
+            if (ModelState.IsValid)
+            {
+                IDailyAccountService dailyAccountService = new ServiceFactory().GetDailyAccountService();
+                bool isSucess = dailyAccountService.InsData(dailyAccountViewModel);
+                return RedirectToAction("Index");
+            }
+            return View("Index", dailyAccountViewModel);
         }
         public ActionResult About()
         {
