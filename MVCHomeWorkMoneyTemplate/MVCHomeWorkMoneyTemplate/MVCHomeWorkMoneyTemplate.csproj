@@ -171,6 +171,7 @@
     <Compile Include="Service\DailyAccountService.cs" />
     <Compile Include="Service\ICategoryService.cs" />
     <Compile Include="Service\IDailyAccountService.cs" />
+    <Compile Include="ValidateAttribute\DateValueValidationAttribute.cs" />
     <Compile Include="ViewModels\DailyAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
