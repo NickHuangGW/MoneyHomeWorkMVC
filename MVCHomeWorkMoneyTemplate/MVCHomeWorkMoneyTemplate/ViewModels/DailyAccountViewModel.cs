@@ -13,7 +13,6 @@ namespace MVCHomeWorkMoneyTemplate.ViewModels
         [Required]
         [Display(Name ="類別")]
         public int? CategoryID { get; set; }
-        [Required]
         [Display(Name = "類別名稱")]
         public string CategoryName { get; set; }
         [Required]

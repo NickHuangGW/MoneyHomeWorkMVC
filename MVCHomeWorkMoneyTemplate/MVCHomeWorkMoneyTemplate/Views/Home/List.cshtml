@@ -1,7 +1,11 @@
 ﻿@using MVCHomeWorkMoneyTemplate.Helper
-@model IEnumerable<MVCHomeWorkMoneyTemplate.ViewModels.DailyAccountViewModel>
+@using PagedList.Mvc
+@model PagedList.IPagedList<MVCHomeWorkMoneyTemplate.ViewModels.DailyAccountViewModel>
 @{
     Layout = null;
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 }
 <table class="table table-bordered table-hover">
     <tr>
@@ -9,17 +13,17 @@
             #
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Money)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Money)
         </th>
     </tr>
     @{
-        int i = 0;
+        int i = 0 + (int)ViewData["PageNumber"] * 10;
         foreach (var item in Model)
         {
             <tr>
@@ -39,3 +43,4 @@
         }
     }
 </table>
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))

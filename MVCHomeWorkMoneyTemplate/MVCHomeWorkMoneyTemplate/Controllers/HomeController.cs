@@ -3,6 +3,7 @@ using MVCHomeWorkMoneyTemplate.Factory;
 using MVCHomeWorkMoneyTemplate.Repository;
 using MVCHomeWorkMoneyTemplate.Service;
 using MVCHomeWorkMoneyTemplate.ViewModels;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,10 +55,11 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         {
             return PartialView("CategoryDDL");
         }
-        public ActionResult List()
+        public ActionResult List(int Page = 1)
         {
             IEnumerable<DailyAccountViewModel> dailyAccountViewModels = _dailyAccountService.GetData();
-            return PartialView(dailyAccountViewModels);
+            ViewData["PageNumber"] = Page - 1;
+            return PartialView(dailyAccountViewModels.ToPagedList(Page, 10));
         }
     }
 }
