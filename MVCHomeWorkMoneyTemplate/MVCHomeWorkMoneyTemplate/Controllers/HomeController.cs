@@ -32,6 +32,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
             if (ModelState.IsValid)
             {
                 bool isSucess = _dailyAccountService.InsData(dailyAccountViewModel);
+                _unitOfWork.CommitTrans();
                 return RedirectToAction("Index");
             }
             return View("Index", dailyAccountViewModel);
