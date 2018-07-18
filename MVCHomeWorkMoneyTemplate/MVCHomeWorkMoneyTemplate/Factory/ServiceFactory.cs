@@ -8,13 +8,13 @@ namespace MVCHomeWorkMoneyTemplate.Factory
 {
     public class ServiceFactory
     {
-        public IDailyAccountService GetDailyAccountService()
-        {
-            return new DailyAccountByEfService();
-        }
-        public ICategoryService GetCategoryService()
-        {
-            return new CategoryService();
-        }
+        //public IDailyAccountService GetDailyAccountService()
+        //{
+        //    return new DailyAccountByEfService();
+        //}
+        //public ICategoryService GetCategoryService()
+        //{
+        //    return new CategoryService();
+        //}
     }
 }

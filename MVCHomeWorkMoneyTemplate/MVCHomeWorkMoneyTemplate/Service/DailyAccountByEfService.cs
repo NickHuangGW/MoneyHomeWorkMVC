@@ -5,20 +5,21 @@ using System.Linq;
 using System.Web;
 using MVCHomeWorkMoneyTemplate.EnumType;
 using MVCHomeWorkMoneyTemplate.Models;
+using MVCHomeWorkMoneyTemplate.Repository;
 using MVCHomeWorkMoneyTemplate.ViewModels;
 
 namespace MVCHomeWorkMoneyTemplate.Service
 {
     public class DailyAccountByEfService : IDailyAccountService
     {
-        private readonly DataBase _db;
-        public DailyAccountByEfService()
+        private IGenericRepostiory<AccountBook> _accountBookRepository;
+        public DailyAccountByEfService(IUnitOfWork unitOfWork)
         {
-            _db = new DataBase();
+            _accountBookRepository = new GenericRepostiory<AccountBook>(unitOfWork);
         }
         public IEnumerable<DailyAccountViewModel> GetData()
         {
-            foreach (var dt in _db.AccountBook)
+            foreach (var dt in _accountBookRepository.GetAll())
             {
                 var dailyAccountViewModel = new DailyAccountViewModel
                 {
@@ -45,8 +46,7 @@ namespace MVCHomeWorkMoneyTemplate.Service
                     Dateee = Convert.ToDateTime(dailyAccountViewModel.Date),
                     Remarkkk = dailyAccountViewModel.Description
                 };
-                _db.AccountBook.Add(accountBook);
-                _db.SaveChanges();
+                _accountBookRepository.Create(accountBook);
             }
             catch
             {

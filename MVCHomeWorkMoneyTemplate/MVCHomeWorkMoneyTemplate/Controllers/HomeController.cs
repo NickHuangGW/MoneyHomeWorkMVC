@@ -1,5 +1,6 @@
 ﻿using MVCHomeWorkMoneyTemplate.EnumType;
 using MVCHomeWorkMoneyTemplate.Factory;
+using MVCHomeWorkMoneyTemplate.Repository;
 using MVCHomeWorkMoneyTemplate.Service;
 using MVCHomeWorkMoneyTemplate.ViewModels;
 using System;
@@ -12,9 +13,16 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
 {
     public class HomeController : Controller
     {
+        private IUnitOfWork _unitOfWork;
+        private IDailyAccountService _dailyAccountService;
+        public HomeController()
+        {
+            _unitOfWork = new UnitOfWork();
+            _dailyAccountService = new DailyAccountByEfService(_unitOfWork);
+
+        }
         public ActionResult Index()
         {
-
             return View();
         }
         [HttpPost]
@@ -23,8 +31,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         {
             if (ModelState.IsValid)
             {
-                IDailyAccountService dailyAccountService = new ServiceFactory().GetDailyAccountService();
-                bool isSucess = dailyAccountService.InsData(dailyAccountViewModel);
+                bool isSucess = _dailyAccountService.InsData(dailyAccountViewModel);
                 return RedirectToAction("Index");
             }
             return View("Index", dailyAccountViewModel);
@@ -48,8 +55,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         }
         public ActionResult List()
         {
-            IDailyAccountService dailyAccountService = new ServiceFactory().GetDailyAccountService();
-            IEnumerable<DailyAccountViewModel> dailyAccountViewModels = dailyAccountService.GetData();
+            IEnumerable<DailyAccountViewModel> dailyAccountViewModels = _dailyAccountService.GetData();
             return PartialView(dailyAccountViewModels);
         }
     }

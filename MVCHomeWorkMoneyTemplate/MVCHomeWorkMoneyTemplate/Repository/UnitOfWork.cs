@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCHomeWorkMoneyTemplate.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace MVCHomeWorkMoneyTemplate.Repository
     {
         public DbContext UnitDbContext { get; set; }
 
-        public UnitOfWork(DbContext dbContext)
+        public UnitOfWork()
         {
-            UnitDbContext = dbContext;
+            UnitDbContext = new DataBase();
         }
 
         public void CommitTrans()
