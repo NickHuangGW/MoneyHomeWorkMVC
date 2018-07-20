@@ -12,7 +12,7 @@ namespace MVCHomeWorkMoneyTemplate.Service
 {
     public class DailyAccountByEfService : IDailyAccountService
     {
-        private IGenericRepostiory<AccountBook> _accountBookRepository;
+        private readonly IGenericRepostiory<AccountBook> _accountBookRepository;
         public DailyAccountByEfService(IUnitOfWork unitOfWork)
         {
             _accountBookRepository = new GenericRepostiory<AccountBook>(unitOfWork);
@@ -57,7 +57,7 @@ namespace MVCHomeWorkMoneyTemplate.Service
 
         private string GetTypeName(CategoryEnum categoryEnum)
         {
-            string typeName = string.Empty;
+            var typeName = string.Empty;
             switch (categoryEnum)
             {
                 case CategoryEnum.Income:
