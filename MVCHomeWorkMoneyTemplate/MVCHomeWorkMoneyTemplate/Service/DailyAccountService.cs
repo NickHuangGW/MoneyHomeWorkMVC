@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVCHomeWorkMoneyTemplate.EnumType;
+using MVCHomeWorkMoneyTemplate.Helper;
 using MVCHomeWorkMoneyTemplate.ViewModels;
 
 namespace MVCHomeWorkMoneyTemplate.Service
@@ -21,7 +22,7 @@ namespace MVCHomeWorkMoneyTemplate.Service
                 {
                     Money        = accountMoney,
                     CategoryID   = type,
-                    CategoryName = GetTypeName((CategoryEnum) type),
+                    CategoryName = ((CategoryEnum) type).GetTypeName(),
                     Date         = DateTime.Now.AddDays(accountDate)
                 };
                 yield return  dailyAccountViewModel;
@@ -32,21 +33,5 @@ namespace MVCHomeWorkMoneyTemplate.Service
         {
             throw new NotImplementedException();
         }
-
-        private string GetTypeName(CategoryEnum categoryEnum)
-        {
-            string typeName = string.Empty;
-            switch (categoryEnum)
-            {
-                case CategoryEnum.Income:
-                    typeName = "收入";
-                    break;
-                case CategoryEnum.Outlay:
-                    typeName = "支出";
-                    break;
-            }
-            return typeName;
-        }
-
     }
 }
