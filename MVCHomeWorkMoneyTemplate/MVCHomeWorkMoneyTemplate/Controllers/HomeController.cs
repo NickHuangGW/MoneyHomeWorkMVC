@@ -58,7 +58,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         public ActionResult List(int Page = 1)
         {
             IEnumerable<DailyAccountViewModel> dailyAccountViewModels = _dailyAccountService.GetData();
-            ViewData["PageNumber"] = Page - 1;
+           
             return PartialView(dailyAccountViewModels.ToPagedList(Page, 10));
         }
     }
