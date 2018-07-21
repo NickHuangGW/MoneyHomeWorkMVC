@@ -17,8 +17,8 @@ namespace MVCHomeWorkMoneyTemplate.ValidateAttribute
             {
                 return false;
             }
-            bool isSucess = DateTime.TryParse(value.ToString(), out DateTime thisDate);
-            if (isSucess)
+
+            if (DateTime.TryParse(value.ToString(), out DateTime thisDate))
             {
                 if (thisDate <= DateTime.Now)
                 {

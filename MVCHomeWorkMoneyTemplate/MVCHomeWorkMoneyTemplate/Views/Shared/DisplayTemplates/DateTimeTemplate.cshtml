@@ -2,7 +2,7 @@
 @{
     if (Model != null)
     {
-        @(Convert.ToDateTime(Model).ToString("yyyy-MM-dd"))
+        @(Model.Value.ToString("yyyy-MM-dd"))
     }
 }
 

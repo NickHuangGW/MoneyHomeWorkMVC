@@ -5,6 +5,7 @@
     Layout = null;
 }
 @section css{
+    @*你在 Layout 根本沒有 css 這個 section 你頁面上用 section css 想塞哪去？*@
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 }
 <table class="table table-bordered table-hover">
@@ -23,7 +24,7 @@
         </th>
     </tr>
     @{
-        int i = 0 + (int)ViewData["PageNumber"] * 10;
+        int i = 0 +Model.PageNumber* 10;
         foreach (var item in Model)
         {
             <tr>
