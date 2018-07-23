@@ -13,18 +13,9 @@ namespace MVCHomeWorkMoneyTemplate.ValidateAttribute
 
         public override bool IsValid(object value)
         {
-            if (value == null)
+            if (value is DateTime)
             {
-                return false;
-            }
-
-            if (DateTime.TryParse(value.ToString(), out DateTime thisDate))
-            {
-                if (thisDate <= DateTime.Now)
-                {
-                    return true;
-                }
-
+                return DateTime.Now.CompareTo(Convert.ToDateTime(value)) >= 0;
             }
             return false;
         }
