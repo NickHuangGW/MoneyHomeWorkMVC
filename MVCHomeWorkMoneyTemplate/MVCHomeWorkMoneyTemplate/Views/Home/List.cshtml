@@ -24,7 +24,7 @@
         </th>
     </tr>
     @{
-        int i = 0 +Model.PageNumber* 10;
+        int i = 0 + (Model.PageNumber - 1) * 10;
         foreach (var item in Model)
         {
             <tr>
