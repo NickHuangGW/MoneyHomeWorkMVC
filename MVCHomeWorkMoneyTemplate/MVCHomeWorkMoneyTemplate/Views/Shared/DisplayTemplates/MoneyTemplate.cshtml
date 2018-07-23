@@ -1,5 +1,8 @@
-﻿@model int
+﻿@model int?
 @{
-    @(Model.ToString("#,#"))
+    if (Model != null)
+    {
+        @(Model.Value.ToString("#,#"))
+    }
 }
 
