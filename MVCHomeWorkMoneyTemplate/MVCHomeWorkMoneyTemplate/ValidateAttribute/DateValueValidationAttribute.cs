@@ -9,8 +9,6 @@ namespace MVCHomeWorkMoneyTemplate.ValidateAttribute
 {
     public sealed class DateValueValidationAttribute : ValidationAttribute
     {
-
-
         public override bool IsValid(object value)
         {
             if (value is DateTime)
