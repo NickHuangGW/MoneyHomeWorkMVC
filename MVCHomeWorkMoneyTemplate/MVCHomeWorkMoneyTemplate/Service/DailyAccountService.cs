@@ -29,6 +29,11 @@ namespace MVCHomeWorkMoneyTemplate.Service
             }
         }
 
+        public DailyAccountViewModel GetSingleDataById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool InsData(DailyAccountViewModel dailyAccountViewModel)
         {
             throw new NotImplementedException();

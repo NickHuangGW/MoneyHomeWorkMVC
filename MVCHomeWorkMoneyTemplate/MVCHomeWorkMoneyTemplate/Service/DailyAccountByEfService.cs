@@ -28,10 +28,23 @@ namespace MVCHomeWorkMoneyTemplate.Service
                     CategoryID = dt.Categoryyy,
                     CategoryName = ((CategoryEnum)dt.Categoryyy).GetTypeName(),
                     Date = dt.Dateee,
-                    Description= dt.Remarkkk
+                    Description = dt.Remarkkk
                 };
                 yield return dailyAccountViewModel;
             }
+        }
+
+        public DailyAccountViewModel GetSingleDataById(Guid id)
+        {
+            AccountBook accountBook = _accountBookRepository.Query(x => x.Id == id).FirstOrDefault();
+            return new DailyAccountViewModel
+            {
+                CategoryID = accountBook.Categoryyy,
+                Date = accountBook.Dateee,
+                Money = accountBook.Amounttt,
+                Description = accountBook.Remarkkk,
+                Id = accountBook.Id
+            };
         }
 
         public bool InsData(DailyAccountViewModel dailyAccountViewModel)
@@ -56,6 +69,6 @@ namespace MVCHomeWorkMoneyTemplate.Service
             return isSucess;
         }
 
-        
+
     }
 }

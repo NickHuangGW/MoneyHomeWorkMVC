@@ -10,6 +10,7 @@ namespace MVCHomeWorkMoneyTemplate.ViewModels
 {
     public class DailyAccountViewModel
     {
+        public Guid Id { get; set; }
         [Required]
         [Display(Name ="類別")]
         public int? CategoryID { get; set; }

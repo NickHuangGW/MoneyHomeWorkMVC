@@ -12,5 +12,7 @@ namespace MVCHomeWorkMoneyTemplate.Service
         IEnumerable<DailyAccountViewModel> GetData();
 
         bool InsData(DailyAccountViewModel dailyAccountViewModel);
+
+        DailyAccountViewModel GetSingleDataById(Guid id);
     }
 }

@@ -329,6 +329,7 @@
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeTemplate.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MoneyTemplate.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

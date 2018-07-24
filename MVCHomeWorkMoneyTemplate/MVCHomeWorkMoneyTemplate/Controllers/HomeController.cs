@@ -44,21 +44,24 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
 
             return View();
         }
-
+        public ActionResult Edit(Guid id)
+        {
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
-        public ActionResult GetCategoryDDL()
+        public ActionResult GetCategoryDDL(int categoryID = 0)
         {
-            return PartialView("CategoryDDL");
+            return PartialView("CategoryDDL", new CategoryType { CategoryID = (CategoryEnum)categoryID });
         }
         public ActionResult List(int Page = 1)
         {
             IEnumerable<DailyAccountViewModel> dailyAccountViewModels = _dailyAccountService.GetData();
-           
+
             return PartialView(dailyAccountViewModels.ToPagedList(Page, 10));
         }
     }
