@@ -18,9 +18,8 @@ namespace MVCHomeWorkMoneyTemplate.ViewModels
         public string CategoryName { get; set; }
         [Required]
         [Display(Name = "日期")]
-        [DataType(DataType.Date)]
         [DateValueValidation(ErrorMessage ="輸入日期不能大於今天")]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
         [Required]
         [Display(Name = "金額")]
         [Range(0,int.MaxValue,ErrorMessage ="請輸入正整數金額")]

@@ -46,7 +46,7 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         }
         public ActionResult Edit(Guid id)
         {
-            return View();
+            return View(_dailyAccountService.GetSingleDataById(id));
         }
         public ActionResult Contact()
         {

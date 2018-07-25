@@ -28,7 +28,8 @@ namespace MVCHomeWorkMoneyTemplate.Service
                     CategoryID = dt.Categoryyy,
                     CategoryName = ((CategoryEnum)dt.Categoryyy).GetTypeName(),
                     Date = dt.Dateee,
-                    Description = dt.Remarkkk
+                    Description = dt.Remarkkk,
+                    Id = dt.Id
                 };
                 yield return dailyAccountViewModel;
             }

@@ -22,25 +22,31 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Money)
         </th>
+        <th>
+            @Html.Label("修改")
+        </th>
     </tr>
     @{
         int i = 0 + (Model.PageNumber - 1) * 10;
         foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @(++i)
-                </td>
-                <td>
-                    @Html.DisplayCategoryType(item.CategoryID, item.CategoryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date, "DateTimeTemplate")
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Money, "MoneyTemplate")
-                </td>
-            </tr>
+    <tr>
+        <td>
+            @(++i)
+        </td>
+        <td>
+            @Html.DisplayCategoryType(item.CategoryID, item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Money, "MoneyTemplate")
+        </td>
+        <td>
+           @Html.ActionLink("修改","Edit",new { id = item.Id})
+        </td>
+    </tr>
         }
     }
 </table>
