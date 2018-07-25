@@ -4,8 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using MVCHomeWorkMoneyTemplate.Models;
-using WebApplication1.Models;
+using MVCHomeWorkMoneyTemplate.Areas.Manager.Models;
 
 namespace MVCHomeWorkMoneyTemplate
 {

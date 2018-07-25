@@ -191,8 +191,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Manager\Controllers\AccountController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Areas\Manager\Models\IdentityModels.cs" />
+    <Compile Include="Areas\Manager\ViewModels\AccountViewModels.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="EnumType\CategoryEnum.cs" />
     <Compile Include="Factory\ServiceFactory.cs" />
@@ -250,6 +252,8 @@
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\Register.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -365,9 +369,9 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyTemplate.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Manager\Controllers\" />
     <Folder Include="Areas\Manager\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
