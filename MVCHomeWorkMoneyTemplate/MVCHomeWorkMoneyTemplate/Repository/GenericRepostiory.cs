@@ -39,10 +39,5 @@ namespace MVCHomeWorkMoneyTemplate.Repository
             return EfDbSet.Where(predicate);
         }
 
-        public void Update(T model)
-        {
-            //未實作
-            throw new NotImplementedException();
-        }
     }
 }

@@ -19,7 +19,6 @@ namespace MVCHomeWorkMoneyTemplate.Repository
 
         void Delete(T model);
 
-        void Update(T model);
 
     }
 }

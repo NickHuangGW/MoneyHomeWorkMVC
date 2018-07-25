@@ -10,6 +10,11 @@ namespace MVCHomeWorkMoneyTemplate.Service
 {
     public class DailyAccountService : IDailyAccountService
     {
+        public void EditData(DailyAccountViewModel dailyAccountViewModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<DailyAccountViewModel> GetData()
         {
             var dataRandom = new Random();

@@ -48,6 +48,18 @@ namespace MVCHomeWorkMoneyTemplate.Controllers
         {
             return View(_dailyAccountService.GetSingleDataById(id));
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditData(DailyAccountViewModel dailyAccountViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _dailyAccountService.EditData(dailyAccountViewModel);
+                _unitOfWork.CommitTrans();
+                return RedirectToAction("Index");
+            }
+            return View("Edit", dailyAccountViewModel);
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

@@ -18,6 +18,16 @@ namespace MVCHomeWorkMoneyTemplate.Service
         {
             _accountBookRepository = new GenericRepostiory<AccountBook>(unitOfWork);
         }
+
+        public void EditData(DailyAccountViewModel dailyAccountViewModel)
+        {
+                AccountBook accountBook = _accountBookRepository.Query(x => x.Id == dailyAccountViewModel.Id).FirstOrDefault();
+                accountBook.Amounttt = dailyAccountViewModel.Money;
+                accountBook.Dateee = dailyAccountViewModel.Date;
+                accountBook.Remarkkk = dailyAccountViewModel.Description;
+                accountBook.Categoryyy = dailyAccountViewModel.CategoryID;
+        }
+
         public IEnumerable<DailyAccountViewModel> GetData()
         {
             foreach (var dt in _accountBookRepository.GetAll())
