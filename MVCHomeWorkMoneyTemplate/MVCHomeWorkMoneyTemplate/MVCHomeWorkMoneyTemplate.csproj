@@ -254,6 +254,7 @@
     <Content Include="Areas\Manager\Views\web.config" />
     <Content Include="Areas\Manager\Views\Account\Login.cshtml" />
     <Content Include="Areas\Manager\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Manager\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
